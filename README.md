@@ -1,0 +1,7 @@
+# FakeApi
+
+## Package
+```
+./gradlew shadowJar
+```
+
