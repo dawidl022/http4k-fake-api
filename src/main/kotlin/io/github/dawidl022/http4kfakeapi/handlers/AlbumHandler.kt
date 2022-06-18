@@ -16,35 +16,42 @@ fun AlbumHandler() = routes(
     "" bind GET to {
         lensAlbumList.respond(Albums.all())
     },
-    // TODO handle int conversion errors
     "/{id}" bind GET to {
-        val album = Albums.get(it.path("id")?.toInt() ?: 0)
+        val id = it.path("id")?.toIntOrNull() ?:
+            return@to Response(Status.BAD_REQUEST).body("Album id must be an integer")
+        val album = Albums.get(id)
         if (album != null)
             lensAlbum.respond(album)
         else
-            Response(Status.NOT_FOUND)
+            Response(Status.NOT_FOUND).body("No album with id $id")
     },
     "" bind POST to {
         val newAlbum = lensAlbum.extract(it)
         if (Albums.add(newAlbum))
-            Response(Status.CREATED)
+            Response(Status.CREATED).body("Added album")
         else
             Response(Status.INTERNAL_SERVER_ERROR).body("Failed to add album")
     },
     "/{id}" bind PUT to {
-        val id = it.path("id")?.toInt() ?: 0
+        val id = it.path("id")?.toIntOrNull() ?:
+            return@to Response(Status.BAD_REQUEST).body("Album id must be an integer")
         if (Albums.get(id) == null) {
-            return@to Response(Status.NOT_FOUND).body("No album found with id $id")
+            return@to Response(Status.NOT_FOUND).body("No album with id $id")
         }
         val updatedAlbum = lensAlbum.extract(it)
         if (Albums.put(id, updatedAlbum))
-            Response(Status.CREATED)
+            Response(Status.CREATED).body("Updated album with id $id")
         else
             Response(Status.INTERNAL_SERVER_ERROR).body("Failed to update album")
     },
     "/{id}" bind DELETE to {
-        if (Albums.delete(it.path("id")?.toInt() ?: 0))
-            Response(Status.NO_CONTENT)
+        val id = it.path("id")?.toIntOrNull() ?:
+        return@to Response(Status.BAD_REQUEST).body("Album id must be an integer")
+        if (Albums.get(id) == null) {
+            return@to Response(Status.NOT_FOUND).body("No album with id $id")
+        }
+        if (Albums.delete(id))
+            Response(Status.NO_CONTENT).body("Deleted album with id $id")
         else
             Response(Status.INTERNAL_SERVER_ERROR).body("Failed to delete album")
     },
