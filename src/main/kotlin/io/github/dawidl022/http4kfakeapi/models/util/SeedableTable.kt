@@ -22,6 +22,12 @@ abstract class SeedableTable<T : Idable>(val name: String) : Table() {
             selectAll().map(::fromRow)
         }
 
+    fun get(recordId: Int): T? = transaction {
+        select {
+            this@SeedableTable.id eq recordId
+        }.map(::fromRow).firstOrNull()
+    }
+
 //    suspend fun get(call: ApplicationCall, response: (T) -> Any) {
 //        val queryId = getQueryId(call) ?: return
 //        val resource = transaction {
