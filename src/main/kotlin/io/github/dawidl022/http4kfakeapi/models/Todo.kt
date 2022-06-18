@@ -2,8 +2,8 @@
 //
 //import com.fasterxml.jackson.annotation.JsonProperty
 //import com.fasterxml.jackson.annotation.JsonRootName
-//import io.github.dawidl022.models.util.Idable
-//import io.github.dawidl022.models.util.SeedableTable
+//import io.github.dawidl022.http4kfakeapi.models.util.Idable
+//import io.github.dawidl022.http4kfakeapi.models.util.SeedableTable
 //import io.github.dawidl022.models.util.XMLParsable
 //import io.github.dawidl022.models.util.XMLParser
 //import kotlinx.serialization.Serializable

@@ -1,7 +1,7 @@
 package io.github.dawidl022.http4kfakeapi.db
 
 import io.github.dawidl022.http4kfakeapi.models.Albums
-import io.github.dawidl022.models.util.SeedableTable
+import io.github.dawidl022.http4kfakeapi.models.util.SeedableTable
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 

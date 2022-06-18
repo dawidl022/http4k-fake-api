@@ -2,6 +2,8 @@ package io.github.dawidl022.http4kfakeapi.models
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonRootName
+import io.github.dawidl022.http4kfakeapi.models.util.Idable
+import io.github.dawidl022.http4kfakeapi.models.util.SeedableTable
 import io.github.dawidl022.models.util.*
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.statements.UpdateBuilder

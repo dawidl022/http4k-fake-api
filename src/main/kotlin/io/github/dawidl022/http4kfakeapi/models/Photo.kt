@@ -1,8 +1,8 @@
 //package io.github.dawidl022.models
 //
 //import io.github.dawidl022.Config
-//import io.github.dawidl022.models.util.Idable
-//import io.github.dawidl022.models.util.SeedableTable
+//import io.github.dawidl022.http4kfakeapi.models.util.Idable
+//import io.github.dawidl022.http4kfakeapi.models.util.SeedableTable
 //import kotlinx.serialization.ExperimentalSerializationApi
 //import kotlinx.serialization.Serializable
 //import kotlinx.serialization.json.Json
