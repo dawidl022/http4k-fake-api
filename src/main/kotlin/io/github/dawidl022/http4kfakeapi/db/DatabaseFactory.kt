@@ -1,6 +1,8 @@
 package io.github.dawidl022.http4kfakeapi.db
 
 import io.github.dawidl022.http4kfakeapi.models.Albums
+import io.github.dawidl022.http4kfakeapi.models.Photos
+import io.github.dawidl022.http4kfakeapi.models.Todos
 import io.github.dawidl022.http4kfakeapi.models.util.SeedableTable
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -12,12 +14,12 @@ object DatabaseFactory {
 
         transaction {
             SchemaUtils.create(Albums)
-//            SchemaUtils.create(Photos)
-//            SchemaUtils.create(Todos)
+            SchemaUtils.create(Photos)
+            SchemaUtils.create(Todos)
         }
         seedDb(Albums)
-//        seedDb(Photos)
-//        seedDb(Todos)
+        seedDb(Photos)
+        seedDb(Todos)
     }
 
     private fun <T : SeedableTable<M>, M> seedDb(table: T) {

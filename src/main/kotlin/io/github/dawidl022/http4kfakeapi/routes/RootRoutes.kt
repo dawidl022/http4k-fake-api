@@ -4,6 +4,8 @@ import org.http4k.routing.bind
 import org.http4k.routing.routes
 
 fun RootRoutes() = routes(
-    "album" bind AlbumRoutes()
+    "album" bind AlbumRoutes(),
+    "photo" bind PhotoRoutes(),
+    "todo" bind TodoRoutes(),
 //    "/graphql" bind graphQL(UserDbHandler())
 )
