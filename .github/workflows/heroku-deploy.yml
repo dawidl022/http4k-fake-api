@@ -9,13 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment:
-      name: REST API
-      url: https://damp-shore-39758.herokuapp.com
+      name: GraphQL API
+      url: https://safe-coast-20735.herokuapp.com
     steps:
       - uses: actions/checkout@v2
       - uses: gonuit/heroku-docker-deploy@v1.3.3
         with:
           email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: damp-shore-39758
+          heroku_app_name: safe-coast-20735
           docker_options: "--no-cache"
