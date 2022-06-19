@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonRootName
 import io.github.dawidl022.http4kfakeapi.models.util.Idable
 import io.github.dawidl022.http4kfakeapi.models.util.SeedableTable
-import io.github.dawidl022.models.util.XMLParsable
-import io.github.dawidl022.models.util.XMLParser
+import io.github.dawidl022.http4kfakeapi.models.util.XMLParsable
+import io.github.dawidl022.http4kfakeapi.models.util.XMLParser
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.statements.UpdateBuilder
 

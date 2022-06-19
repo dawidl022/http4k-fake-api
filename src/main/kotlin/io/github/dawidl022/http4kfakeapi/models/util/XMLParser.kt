@@ -1,4 +1,4 @@
-package io.github.dawidl022.models.util
+package io.github.dawidl022.http4kfakeapi.models.util
 
 import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
