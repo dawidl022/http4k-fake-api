@@ -9,6 +9,7 @@ import org.http4k.server.asServer
 
 object Config {
     val dataDir = System.getenv("DATA_DIR")
+    val schemaDir = System.getenv("SCHEMA_DIR")
 }
 
 fun main() {
