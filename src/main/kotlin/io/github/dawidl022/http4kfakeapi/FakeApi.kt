@@ -16,7 +16,8 @@ fun main() {
 
     val printingApp: HttpHandler = PrintRequest().then(RootRoutes())
 
-    val server = printingApp.asServer(Netty(8080)).start()
+    val port = System.getenv("PORT")?.toIntOrNull() ?: 8080
+    val server = printingApp.asServer(Netty(port)).start()
 
     println("Server started on " + server.port())
 }

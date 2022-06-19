@@ -1,0 +1,21 @@
+name: Deploy container to Heroku
+
+on:
+  push:
+    paths-ignore:
+      - README.md
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: REST API
+      url: https://damp-shore-39758.herokuapp.com
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: damp-shore-39758
+          docker_options: "--no-cache"

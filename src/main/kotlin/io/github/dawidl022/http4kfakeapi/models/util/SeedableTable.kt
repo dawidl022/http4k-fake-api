@@ -22,11 +22,12 @@ abstract class SeedableTable<T : Idable>(val name: String) : Table() {
             selectAll().map(::fromRow)
         }
 
-    fun get(recordId: Int): T? = transaction {
-        select {
-            this@SeedableTable.id eq recordId
-        }.map(::fromRow).firstOrNull()
-    }
+    fun get(recordId: Int): T? =
+        transaction {
+            select {
+                this@SeedableTable.id eq recordId
+            }.map(::fromRow).firstOrNull()
+        }
 
     fun add(item: T): Boolean =
         transaction {
